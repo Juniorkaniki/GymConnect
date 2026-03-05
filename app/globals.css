@@ -1,24 +1,60 @@
 @import "tailwindcss";
-@tailwind componenets;
-@tailwind utilities;  
 
+/* =========================
+   Theme variables (Tailwind v4)
+   ========================= */
 @theme {
-  /* --- Configuration du Container --- */
-  --container-center: true;
-  --container-padding: 15px;
 
-  /* --- Configuration des Screens (Breakpoints) --- */
-  /* On redéfinit les variables de breakpoints natives */
+  /* Breakpoints */
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
-  
-  /* Ton réglage spécifique pour le XL */
-  --breakpoint-xl: 1400px; 
-  --font-oswald: var(--font-oswald);
-  --font-roboto: var(--font-roboto);
+  --breakpoint-xl: 1400px;
 
-  
+  /* Colors */
+  --color-primary: #333;
+  --color-primary-100: #484848;
+  --color-primary-200: #151515;
+  --color-primary-300: #111;
+  --color-accent: #d400d4;
+
+  /* Background images */
   --image-hero: url("/assets/img/hero/bg.png");
-  --image-membership: url("/assets/img/membership/bg.jpg");
-} 
+  --image-membership: url("/assets/img/membership/bg.png");
+}
+
+/* =========================
+   Base styles
+   ========================= */
+@layer base {
+
+  body {
+    font-family: var(--font-roboto), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-oswald ), sans-serif;
+    font-weight: 700;
+  }
+  .h1 {
+    @apply text-white text-7xl lg:text-[128px] tracking-[-3px] ;
+  }
+  .h2 {
+    @apply text-[36px] ;
+  }
+  .h3 {
+    @apply text-[32px] ;
+  }
+  .h4 {
+    @apply text-[26px] ;
+  }
+  .h5 {
+    @apply text-[22px] ;
+  }
+
+}
