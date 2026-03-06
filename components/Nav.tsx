@@ -1,3 +1,5 @@
+'use client';
+
 import { Link as ScrollLink } from "react-scroll";
 
 const links =[
@@ -14,7 +16,27 @@ const links =[
 ]
 
 const Nav = ({ containerStyles }: { containerStyles?: string }) => {
-  return <nav className={containerStyles}>Menu</nav>;
+  return (
+    <nav className={`${containerStyles}`}>
+      {links.map((link, index) => {
+        // CORRECTION : Le return doit être sur la même ligne ou utiliser des parenthèses
+        return (
+          <ScrollLink 
+            key={index} // INDISPENSABLE pour React
+            to={link.target} // Généralement requis par ScrollLink
+            spy
+            activeClass="active"
+            offset={link.offset} 
+            smooth={true}
+            className="cursor-pointer hover:text-accent transition-all" // Optionnel : pour le style
+          >
+            {link.name}
+          </ScrollLink>
+        );
+      })}
+    </nav>
+  );
 };
+
 
 export default Nav;

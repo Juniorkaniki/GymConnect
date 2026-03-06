@@ -1,7 +1,7 @@
  
 const Membreship = () => {
   return (
-    <section  className="h-screen bg-lime-300">Membreship</section >
+    <section  className="h-screen bg-lime-300" id="prices">Membreship</section >
   );
 
 }
