@@ -34,7 +34,7 @@ const Nav = ({ containerStyles }: { containerStyles?: string }) => {
           </ScrollLink>
         );
       })}
-    </nav>
+    </nav> 
   );
 };
 
