@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`${headerActive ? "h-[100px]" : "h-[124px]"} fixed max-w-[1920px] top-0 w-full bg-primary-200 transition-all duration-300 z-50`}
+      className={`${headerActive ? "h-[100px]" : "h-[124px]"} fixed max-w-[1920px] top-0 w-full bg-primary-200 transition-all duration-300 z-50 `}
     >
       <div className="container mx-auto h-full flex items-center justify-between">
         {/* LOGO */}

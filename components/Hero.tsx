@@ -2,14 +2,17 @@ import HeroSlider from "./HeroSlider";
 
 const Hero = () => {
   return (
-    <section  className="h-[80vh] lg:h-[912px] " id="home">
-      <div className="container mx-auto pt-32 ">
+<section className="h-[80vh] lg:h-[912px] bg-[url('/assets/img/hero/bg.png')] bg-cover bg-center ">
        {/* HERO SLIDER */}
+
+       <div className="container mx-auto h-full">
+
+      {/*  slider*/ }
        <HeroSlider />
-      </div>
+       </div>
+    
     </section >
   );
-
 }
 
 export default Hero;
