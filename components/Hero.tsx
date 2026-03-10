@@ -2,12 +2,12 @@ import HeroSlider from "./HeroSlider";
 
 const Hero = () => {
   return (
-<section className="h-[80vh] lg:h-[912px] bg-[url('/assets/img/hero/bg.png')] bg-cover bg-center ">
+<section className="h-[80vh] lg:h-[912px] bg-[url('/assets/img/hero/bg.png')] bg-cover bg-center " id="home">
        {/* HERO SLIDER */}
 
        <div className="container mx-auto h-full">
 
-      {/*  slider*/ }
+      {/*  slider*/ } 
        <HeroSlider />
        </div>
     
