@@ -35,7 +35,13 @@ const classes = [
 const Classes = () => {
   return (
     <section id="class">
-      <div className="grid grid-cols-1 lg:grid-cols-2">
+      <motion.div
+        variants={fadeIn("up", 0.6)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        className="grid grid-cols-1 lg:grid-cols-2"
+      >
         {classes.map((item, index) => {
           return (
             <div
@@ -55,18 +61,40 @@ const Classes = () => {
 
               {/* text & button */}
               <div className="relative z-20 max-w-[380px] text-center flex flex-col items-center gap-4">
-                <h3 className="h3 text-accent">{item.name}</h3>
-                <p className="text-white">{item.description}</p>
-
-                <CustomButton
-                  text="Join Now"
-                  containerStyles="w-[160px] h-[50px]"
-                />
+                <motion.h3
+                  variants={fadeIn("up", 0.3)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="h3 text-accent uppercase"
+                >
+                  {item.name}
+                </motion.h3>
+                <motion.p
+                  variants={fadeIn("up", 0.6)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: false, amount: 0.2 }}
+                  className="text-white"
+                >
+                  {item.description}
+                </motion.p>
+                <motion.div
+                  variants={fadeIn("up", 0.8)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: false, amount: 0.2 }}
+                >
+                  <CustomButton
+                    text="Join Now"
+                    containerStyles="w-[160px] h-[50px]"
+                  />
+                </motion.div>
               </div>
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 };

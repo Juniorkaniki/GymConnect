@@ -94,8 +94,6 @@ const About = () => {
         >
           <Achievements />
         </motion.div>
-
-        <Archievements />
       </div>
     </section>
   );
