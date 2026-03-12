@@ -4,6 +4,8 @@ import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import CustomButton from "./CustomButton";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/lib/variants";
 
 const trainerData = [
   {
@@ -56,13 +58,30 @@ const Team = () => {
   return (
     <section className="py-12 xl:h-[110vh]" id="team">
       <div className="container mx-auto h-full flex flex-col items-center justify-center">
-        <h2 className="h2 text-center mb-10 uppercase">Our Trainers</h2>
+
+        {/* title */}
+        <motion.h2
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          className="h2 text-center mb-10 uppercase"
+        >
+          Our Trainers
+        </motion.h2>
 
         {/* trainers grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12">
-          {trainerData.map((trainer) => (
-            <div
+        <motion.div
+          variants={fadeIn("up", 0.6)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12"
+        >
+          {trainerData.map((trainer, index) => (
+            <motion.div
               key={trainer.name}
+              variants={fadeIn("up", index * 0.2)}
               className="flex flex-col items-center text-center"
             >
               {/* image */}
@@ -77,7 +96,9 @@ const Team = () => {
               </div>
 
               {/* name */}
-              <h4 className="h4 mb-2 text-xl font-bold">{trainer.name}</h4>
+              <h4 className="h4 mb-2 text-xl font-bold">
+                {trainer.name}
+              </h4>
 
               {/* role */}
               <p className="text-xs mb-2 uppercase tracking-[3px]">
@@ -106,17 +127,23 @@ const Team = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* button */}
-        <div className="mt-12 ">
+        <motion.div 
+         variants={fadeIn("up", 0.4 )}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+        className="mt-12">
           <CustomButton
             containerStyles="w-[196px] h-[62px]"
-            text="See All Trainers" 
+            text="See All Trainers"
           />
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
