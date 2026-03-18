@@ -71,10 +71,7 @@ const HeroSlider = () => {
               viewport={{ once: false, amount: 0.2 }}
               className="text-white italic text-center lg:text-left mb-4"
             >
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Dignissimos voluptatum omnis molestiae voluptatibus. Consequuntur
-              quod, quaerat quam id debitis tempora vero sit minus totam
-              exercitationem adipisci delectus, maiores nihil dolor.
+               
             </motion.p>
             <motion.div
               variants={fadeIn("up", 0.8)}

@@ -17,7 +17,7 @@ import { title } from "process";
 const membershipData = [
   {
     title: "Standard ",
-    price: "$29.99",
+    price: "30",
     benefits: [
       {
         icon: FaCheck,
@@ -51,7 +51,7 @@ const membershipData = [
   },
   {
     title: "Ultimate ",
-    price: "$45",
+    price: "45",
     benefits: [
       {
         icon: FaCheck,
@@ -85,7 +85,7 @@ const membershipData = [
   },
   {
     title: "Professionnal ",
-    price: "$60",
+    price: "60",
     benefits: [
       {
         icon: FaCheck,
@@ -121,21 +121,54 @@ const membershipData = [
 
 const MembershipSlider = () => {
   return (
-    <Swiper>
-      {membershipData.map((membership, index) => (
+    <Swiper
+      slidesPerView={1}
+      modules={[Pagination]}
+      pagination={{ clickable: true }}
+      breakpoints={{
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      }}
+      className="min-h-[680px]"
+    >
+      {membershipData.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="border border-accent hover:bg-primary-300/80 transition-all duration-300 w-full max-w-sm xl:max-w-none mx-auto">
-          div
-            <h3 className="text-xl font-bold mb-4">{membership.title}</h3>
-            <p className="text-2xl font-bold mb-4">{membership.price}</p>
-            <ul className="space-y-2">
-              {membership.benefits.map((benefit, benefitIndex) => (
-                <li key={benefitIndex} className="flex items-center">
-                  <benefit.icon className="text-green-500 mr-2" />
-                  <span>{benefit.text}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="border border-accent hover:bg-primary-300/80 transition-all duration-300 w-full mx-auto">
+            {" "}
+            <div className="py-5 px-[60px] border-b border-accent">
+              <h4 className="h4">{item.title}</h4>
+            </div>
+            {/* benefits */}
+            <div className="py-[30px] px-[60px]">
+              <ul className="flex flex-col gap-5 mb-7">
+                {" "}
+                {item.benefits.map((item, index) => {
+                  return (
+                    <li className="flex items-center gap-2" key={index}>
+                      <item.icon className="text-accent text-lg" />
+                      {item.text}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* prices & button */}
+              <p className="text-accent mb-8 flex gap-1 items-center">
+                <sup className="text-4xl">$</sup>
+                <strong className="text-6xl">{item.price}</strong>
+                <em className="self-end text-2xl">/month</em>
+              </p>
+              <CustomButton
+                containerStyles="w-[196px]  h-[62px]"
+                text="Buy now"
+              />
+            </div>
           </div>
         </SwiperSlide>
       ))}
