@@ -27,11 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${oswald.variable} ${roboto.variable} bg-gray-200`}
-    >
-      <body className="w-full max-w-[1920px] mx-auto bg-white text-black flex flex-col min-h-screen">
+    <html lang="en" className={`${oswald.variable} ${roboto.variable}`}>
+      <body className="font-roboto w-full max-w-screen-2xl mx-auto bg-white text-black flex flex-col min-h-screen">
+        
         <Header />
 
         <main className="flex-1">
@@ -39,6 +37,7 @@ export default function RootLayout({
         </main>
 
         <Footer />
+
       </body>
     </html>
   );

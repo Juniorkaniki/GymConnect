@@ -29,11 +29,31 @@ const brandItem: Variants = {
 };
 
 const brandImages = [
-  { name: "Partenaire Équipement 1", src: "/assets/img/brands/brand-1.png", href: "#" },
-  { name: "Partenaire Nutrition 2", src: "/assets/img/brands/brand-2.png", href: "#" },
-  { name: "Partenaire Fitness 3", src: "/assets/img/brands/brand-3.png", href: "#" },
-  { name: "Partenaire Santé 4", src: "/assets/img/brands/brand-4.png", href: "#" },
-  { name: "Partenaire Sport 5", src: "/assets/img/brands/brand-5.png", href: "#" },
+  {
+    name: "Partenaire Équipement 1",
+    src: "/assets/img/brands/brand-1.png",
+    href: "#",
+  },
+  {
+    name: "Partenaire Nutrition 2",
+    src: "/assets/img/brands/brand-2.png",
+    href: "#",
+  },
+  {
+    name: "Partenaire Fitness 3",
+    src: "/assets/img/brands/brand-3.png",
+    href: "#",
+  },
+  {
+    name: "Partenaire Santé 4",
+    src: "/assets/img/brands/brand-4.png",
+    href: "#",
+  },
+  {
+    name: "Partenaire Sport 5",
+    src: "/assets/img/brands/brand-5.png",
+    href: "#",
+  },
 ];
 
 const Brands = () => {
@@ -43,21 +63,24 @@ const Brands = () => {
         <motion.div
           variants={brandContainerVariant}
           initial="hidden"
-          whileInView="show"          viewport={{ once: true, amount: 0.3 }} 
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center"
         >
           {brandImages.map((img, index) => (
             <motion.div
               key={index}
-              variants={brandItem} 
+              variants={brandItem}
               className="flex items-center justify-center"
-            >              <Link 
-                href={img.href} 
+            >
+              {" "}
+              <Link
+                href={img.href}
                 className="group relative w-full h-[80px] flex items-center justify-center"
               >
                 <Image
                   src={img.src}
-                  fill 
+                  fill
                   alt={`Logo de ${img.name}`} // Accessibilité améliorée
                   className="opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 object-contain"
                 />
