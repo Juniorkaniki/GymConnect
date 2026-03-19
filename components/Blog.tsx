@@ -66,18 +66,26 @@ const blogData = [
 const Blog = () => {
   return (
     <section className="bg-primary-300 text-white py-24" id="blog">
-      <div className="container mx-auto">
+      <div className="container mx-auto ">
         {/* title */}
         <motion.h2
           variants={fadeIn("up", 0.4)}
           initial="hidden"
           whileInView="show"
-          className="h2 text-center mb-12"
+          viewport={{once: false, amount: 0.2  }}
+          className="h2 text-center mb-12 "
         >
-          Blogs
+          BLOGS
         </motion.h2>
 
         {/* slider */}
+        <motion.div
+         variants={fadeIn("up", 0.6 )}
+          initial="hidden"
+          whileInView="show"
+          viewport={{once: false, amount: 0.2  }}
+          className="h2 text-center mb-12 "
+        >
         <Swiper
           slidesPerView={1}
           spaceBetween={20}
@@ -88,17 +96,16 @@ const Blog = () => {
             },
             1024: {
               slidesPerView: 3,
-              
             },
-            1400:{
-              slidesPerView:4,
-            }
+            1400: {
+              slidesPerView: 4,
+            },
           }}
           className="h-[420px] md:max-w-[660px] lg:max-w-none  mb-8"
         >
           {blogData.map((post, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col">
+              <div className="flex flex-col justify-start h-full max-w-[320px] mx-auto">
                 {/* image */}
                 <Image
                   src={post.img.trim()}
@@ -110,21 +117,39 @@ const Blog = () => {
 
                 {/* text */}
                 <div className="flex flex-col items-start">
-                  <span className="text-sm text-gray-300 mb-2">
+                  <p className="max-w-[380px] uppercase text-[12px] tracking-[3px] mb-1">
                     {post.date}
-                  </span>
+                  </p>
 
-                  <Link href={post.href}>
-                    <h5 className="hover:text-accent transition-all duration-300 cursor-pointer">
-                      {post.title}
-                    </h5>
+                  <Link
+                    className="hover:text-accent transition-all duration-300 cursor-pointer"
+                    href={post.href}
+                  >
+                    <h5 className="h5 uppercase ">{post.title}</h5>
                   </Link>
                 </div>
               </div>
             </SwiperSlide>
           ))}
+          <SwiperNavButtons
+            containerStyles="absolute left-1/2 -translate-x-1/2 bottom-10 md:bottom-20 lg:bottom-[16rem] w-full max-w-[1320px] z-50 flex justify-between px-1"
+            btnStyles="bg-accent text-white w-[56px] h-[56px] flex justify-center items-center hover:bg-accent transition-all duration-300"
+            iconStyles="text-2xl"
+          />
         </Swiper>
+        </motion.div>
       </div>
+      <motion.div 
+      variants={fadeIn("up", 0.8 )}
+          initial="hidden"
+          whileInView="show"
+          viewport={{once: false, amount: 0.2  }}
+      >
+        <CustomButton
+          text={"View all"}
+          containerStyles={"block w-[196px] h-[62px] mx-auto"}
+        />
+      </motion.div>
     </section>
   );
 };
