@@ -94,7 +94,7 @@ const Blog = () => {
               slidesPerView:4,
             }
           }}
-          className="h-[420px] md:max-w-"
+          className="h-[420px] md:max-w-[660px] lg:max-w-none  mb-8"
         >
           {blogData.map((post, index) => (
             <SwiperSlide key={index}>
