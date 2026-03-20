@@ -37,7 +37,7 @@ const HeroSlider = () => {
       {sliderData.map((slide, index) => (
         <SwiperSlide key={index}>
           {/* CORRECTION 1 : pb-40 sur mobile pour laisser de la place aux flèches, lg:pb-0 sur ordi */}
-          <div className="h-full flex justify-end pt-48 pb-40 lg:pb-0 container mx-auto px-4">
+          <div className="h-full flex justify-end pt-48 pb-40 lg:pb-0 container mx-auto ">
             <div className="flex flex-col items-center lg:items-start lg:max-w-[700px]">
               
               <motion.h1
@@ -65,7 +65,6 @@ const HeroSlider = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.2 }}
-                /* CORRECTION 2 : mb-12 pour séparer du bas en mobile, lg:mb-8 pour ajuster l'espace sur ordi */
                 className="mb-12 lg:mb-8"
               >
                 <CustomButton
